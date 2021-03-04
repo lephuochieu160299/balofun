@@ -1,0 +1,97 @@
+.wp-content,
+body {
+    background-color: var(--main-bg);
+}
+
+a {
+    color: #000;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.main-menu {
+    background-color: #fff;
+    .navbar {
+        width: 100%;
+        .main {
+            .form-group {
+                margin-bottom: 0;
+            }
+            .has-search .form-control {
+                padding-left: 2.375rem;
+                border-radius: 1.25rem;
+                font-size: 14px;
+                height: calc(1.4em + .75rem + 2px);
+                border: 1px solid #096642;
+                width: 125%;
+                &::placeholder {
+                    color: #096642;
+                }
+            }
+            .has-search .form-control-feedback {
+                position: absolute;
+                z-index: 2;
+                display: block;
+                width: 2.375rem;
+                height: 2.275rem;
+                line-height: 2.275rem;
+                text-align: center;
+                pointer-events: none;
+                color: #096642;
+            }
+        }
+        .navbar-nav {
+            .nav-item:nth-child(1) {
+                .nav-link {
+                    font-size: 18px;
+                    color: #096642;
+                    font-weight: bold;
+                }
+            }
+            .nav-item:nth-child(2) {
+                .nav-link {
+                    font-size: 18px;
+                    color: #096642;
+                    font-weight: bold;
+                }
+            }
+            .nav-item:nth-child(3) {
+                .nav-link {
+                    font-size: 18px;
+                    color: #FF0303;
+                    font-weight: bold;
+                }
+            }
+            .nav-item:nth-child(4) {
+                .nav-link {
+                    font-size: 18px;
+                    color: #FF0303;
+                    font-weight: bold;
+                }
+            }
+        }
+        .nav-icon-social {
+            .nav {
+                li {
+                    a {
+                        padding-right: .5rem;
+                        padding-left: .5rem;
+                        padding: .5rem .4rem;
+                        img {
+                            padding-top: .4rem;
+                        }
+                        .user {
+                            padding-top: 0;
+                            height: 2.8rem;
+                            width: 2.8rem;
+                            position: relative;
+                            display: inline-block;
+                            object-fit: cover;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

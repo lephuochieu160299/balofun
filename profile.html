@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
+    <!-- slide  owl carousel -->
+    <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./assets/css/owl.theme.default.min.css">
+
+    <!-- css header -->
+    <link rel="stylesheet" href="./assets/css/header.css">
+
+    <!-- css menumobile -->
+    <link rel="stylesheet" href="./assets/css/menumobile.css">
+
+    <!-- css iconface -->
+    <link rel="stylesheet" href="./assets/css/iconface.css">
+
+
+    <!-- css page -->
+    <link rel="stylesheet" href="./assets/css/profile.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/fonts/font-awesome.css">
+    <link rel="stylesheet" href="./assets/css/fonts/fontawesome-webfont.woff">
+
+    <!-- menumobile -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+</head>
+<script>
+    /*Script functionality*/
+    $(document).ready(function() {
+
+        //GLOBALS
+        var nav_menu = $('.nav-menu');
+        var nav_menu_wrap = $('.nav-menu-wrap');
+        var nav_menu_background = $('.nav-menu-background');
+
+        //toggle the active states
+        function toggle_menu() {
+            nav_menu_wrap.toggleClass('active');
+            nav_menu_background.toggleClass('active');
+        }
+
+        //toggling activate state when interacting with elements
+        $('.nav-menu-toggle, .nav-menu-background, .nav-menu .close').on('click', function() {
+            toggle_menu();
+        });
+
+        //if we change orientation or resize, reculate menu
+        $(window).resize(function() {
+            set_menu_height();
+        })
+
+        //INDENTING
+        //go through the menu and add indenting 
+        function add_menu_depth() {
+
+            var menus = $('.menu');
+            //set depth width to be 5% of the nav menu
+            var pad_depth = (nav_menu.outerWidth() / 20);
+
+            //if we have menus
+            if (menus.length != 0) {
+                $.each(menus, function() {
+                    var depth_count = $(this).parents('.menu').length + 1;
+                    var child_elements = $(this).find('li > a');
+
+                    $.each(child_elements, function() {
+                        $(this).css('padding-left', depth_count * pad_depth);
+                    });
+                })
+            }
+        }
+        add_menu_depth();
+    });
+    // search 
+    $('nav li').hover(function() {
+        $('nav li:first-child').toggleClass("active");
+    });
+    $(function() {
+        $('#search-menu').removeClass('toggled');
+
+        $('#search-icon').click(function(e) {
+            e.stopPropagation();
+            $('#search-menu').toggleClass('toggled');
+            $("#popup-search").focus();
+        });
+
+        $('#search-menu input').click(function(e) {
+            e.stopPropagation();
+        });
+
+        $('#search-menu, body').click(function() {
+            $('#search-menu').removeClass('toggled');
+        });
+    });
+</script>
+
+<body>
+    <!-- Icon menu mobile -->
+    <div class="footermenu-fix sm-view">
+        <ul class="footermenu-wrap">
+            <li class="footermenu-wrap-item  register_click ">
+                <div class="footermenu-item">
+                    <a href="#!" class="footermenu-itemlink">
+                        <div class="nav-menu-toggle">
+                            <i class="fa fa-bars toggle"></i>
+                        </div>
+                    </a>
+                </div>
+            </li>
+            <li class="footermenu-wrap-item  register_click ">
+                <div class="footermenu-item">
+                    <a class=" register_click icon footermenu-itemlink" href="./home.html">
+                        <i class="far fa-comment-alt"></i>
+                    </a>
+                </div>
+            </li>
+
+
+            <li class="footermenu-wrap-item center">
+                <div class="footermenu-svg">
+                    <img class="" src="https://ghouse.com.vn/wp-content/uploads/2020/10/circle-shape.png">
+                </div>
+                <div class="footermenu-shadow">
+                </div>
+                <div class="footermenu-item color_white" style="padding-top:0px">
+                    <a href="#" class="footermenu-itemlink register_click_home">
+                        <img src="./assets/img/logomobile.png" width="100%" height="auto">
+                    </a>
+                </div>
+            </li>
+            <li class="footermenu-wrap-item  register_click ">
+                <div class="footermenu-item">
+                    <a href="#" class="footermenu-itemlink ">
+                        <i class="far fa-bell"></i>
+                    </a>
+                </div>
+            </li>
+            <li class="footermenu-wrap-item  register_click ">
+                <div class="footermenu-item">
+                    <a href="#" data-open="#main-menu" data-pos="left" data-bg="main-menu-overlay" data-color="" class="icon footermenu-itemlink" aria-label="Menu" aria-controls="main-menu" aria-expanded="false">
+                        <i class="far fa-user-circle"></i>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- End -->
+
+    <!-- menumobile -->
+    <div class="web-container">
+        <!--Main nav menu -->
+        <nav class="nav-menu-wrap">
+            <div class="nav-menu menu menu-mobile">
+                <div class="menuu">
+                    <h3>Menu</h3>
+                    <div id="search-menu">
+                        <div class="wrapper">
+                            <form id="form" action="#" method="">
+                                <input id="popup-search" type="text" name="u" placeholder="Tìm kiếm" />
+                                <button id="popup-search-button" type="submit" name="search"><i class="fas fa-search"></i></button>
+                            </form>
+                        </div>
+                    </div><i class="fas fa-search" id="search-icon"></i>
+
+                </div>
+                <div class=" media">
+                    <div class="avatar rounded-circle "><img class="rounded-circle " src="./assets/img/a1.jpg" alt=""></div>
+                    <div class="media-body ml-2">
+                        <p class="mb-1 name"><a href="#">Nguyễn Hoàng Long</a></p>
+                        <p class="mb-0 hour">Xem trang cá nhân của bạn</p>
+                    </div>
+                </div>
+                <div class="body-menumobile pt-3">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col-12 pb-3">
+                                    <div class="icon-service-mobile">
+                                        <i class="fas fa-globe-americas"></i>
+                                        <h5>Trạng thái</h5>
+                                    </div>
+                                </div>
+                                <div class="col-12 pb-3">
+                                    <div class="icon-service-mobile">
+                                        <i class="fas fa-pen"></i>
+                                        <h5>Blog</h5>
+                                    </div>
+                                </div>
+                                <div class="col-12 pb-3">
+                                    <div class="icon-service-mobile">
+                                        <i class="fas fa-comments"></i>
+                                        <h5>Thảo luận</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col-12 pb-3">
+                                    <div class="icon-service-mobile">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        <h5>Khoá học</h5>
+                                    </div>
+                                </div>
+                                <div class="col-12 pb-3">
+                                    <div class="icon-service-mobile">
+                                        <i class="fas fa-user-tie"></i>
+                                        <h5>Chuyên gia</h5>
+                                    </div>
+                                </div>
+                                <div class="col-12 pb-3">
+                                    <div class="icon-service-mobile">
+                                        <i class="fas fa-user-shield"></i>
+                                        <h5>Giới thiệu</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="main">
+                        <div class="accordion" id="faq">
+                            <div class="card">
+                                <div class="card-header" id="faqhead1">
+                                    <a href="#" class="btn btn-header-link collapsed" data-toggle="collapse" data-target="#faq1" aria-expanded="true" aria-controls="faq1"><i class="fas fa-th-large"></i> Chủ đề</a>
+                                </div>
+
+                                <div id="faq1" class="collapse" aria-labelledby="faqhead1" data-parent="#faq">
+                                    <div class="card-body">
+                                        <ul class="topic-theme">
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/khoinghiep.png" alt=""> Khởi nghiệp</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/Kinh doanh.png" alt=""> Kinh doanh</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/bds.png" alt=""> Bất động sản</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/chungkhoan.png" alt=""> Chứng khoán</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/vang.png" alt=""> Vàng</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/ngoaihoi.png" alt=""> Ngoại hối</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/kiemtien.png" alt=""> Kiếm tiền</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/tieutien.png" alt=""> Tiêu tiền</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/tietkiem.png" alt="">Tiết kiệm</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/dautu.png" alt=""> Đầu tư</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/baohiem.png" alt="">Bảo hiểm</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/thanhtoan.png" alt="">Thanh toán</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/tiendientu.png" alt="">Tiền điện tử</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/thitruong.png" alt=""> Thị trường</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/Fintech.png" alt=""> Fintech</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/tindung.png" alt="">Tín dụng</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/quantri.png" alt=""> Quản trị</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/maketing.png" alt="">Marketing</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/hoptac.png" alt="">Hợp tác</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/vclm.png" alt=""> Việc làm</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="faqhead2">
+                                    <a href="#" class="btn btn-header-link collapsed" data-toggle="collapse" data-target="#faq2" aria-expanded="true" aria-controls="faq2"><i class="fas fa-question-circle"></i>Trợ giúp & Hỗ trợ</a>
+                                </div>
+
+                                <div id="faq2" class="collapse" aria-labelledby="faqhead2" data-parent="#faq">
+                                    <div class="card-body">
+                                        <ul class="topic-theme">
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/khoinghiep.png" alt="">Trung tâm trựo giúp</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/Kinh doanh.png" alt=""> Hộp thư hỗ trợ</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/bds.png" alt=""> Báo cáo sự cố</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/chungkhoan.png" alt=""> Điều khoản & chính sách</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="faqhead3">
+                                    <a href="#" class="btn btn-header-link collapsed" data-toggle="collapse" data-target="#faq3" aria-expanded="true" aria-controls="faq3"><i class="fas fa-users-cog"></i>Cài đặt & Quyền riêng tư</a>
+                                </div>
+
+                                <div id="faq3" class="collapse" aria-labelledby="faqhead3" data-parent="#faq">
+                                    <div class="card-body">
+                                        <ul class="topic-theme">
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/khoinghiep.png" alt="">Cài đặt</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/Kinh doanh.png" alt=""> Lối tắt quyền riêng tư</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/bds.png" alt="">Chế độ</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"> <img src="./assets/img/icon-topictheme/chungkhoan.png" alt=""> Ngôn ngữ ứng dụng</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="btn-logout">
+                                <a class="btn btn-header-link collapsed" href="#"><i class="fas fa-sign-out-alt"></i>Đăng xuất</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="nav-menu-background">
+        </div>
+    </div>
+    <!-- end -->
+    <!-- Header -->
+    <div class="main-menu">
+        <div class="container">
+            <div class="row">
+                <nav class="navbar navbar-expand-lg ">
+                    <button class="navbar-toggler">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img src="./assets/img/Balofun bong.png" alt=""></a>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                        <div class="main navbar-nav mr-auto mt-2 mt-lg-0">
+                            <div class="form-group has-search">
+                                <span class="fa fa-search form-control-feedback"></span>
+                                <input type="text" class="form-control" placeholder="Nhập nội dung cần tìm">
+                            </div>
+                        </div>
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Trang Chủ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Diễn đàn</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="#">Học Viện</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="#">Chuyên gia</a>
+                            </li>
+                            <li class="nav-item">
+                                <div class="nav-icon-social">
+                                    <ul class="nav navbar-nav list-inline">
+                                        <li class="list-inline-item">
+                                            <a href="#"><img src="./assets/img/Rectangle 428.png" alt=""></a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="#"><img src="./assets/img/Rectangle 394.png" alt=""></a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="#"><img src="./assets/img/Rectangle 395.png" alt=""></a>
+                                        </li>
+                                        <li class="list-inline-item ">
+                                            <a href="#"><img class="user" src="./assets/img/Path 2220.png" alt=""></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- End header -->
+
+    <!-- Trang cá nhân -->
+    <div class="wp-content">
+        <section class="sec-personal">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <div class="col-personal">
+                            <div class="img-banner-personal"><img class="image-baner" src="./assets/img/Rectangle 742.png" alt="">
+                            </div>
+                            <div class="information-personal">
+                                <div class="row">
+                                    <div class="col-lg-3 text-center">
+                                        <img class="avatar-per" src="./assets/img/avatar.jpg" alt="">
+                                    </div>
+                                    <div class="col-lg-6 infomation">
+                                        <h3 class="name"> Nguyễn Hoàng Long <img class="icon-name" src="./assets/img/baseline-verified_user-24px.png" alt=""></h3>
+                                        <h4 class="nameaddress">@longnguyen</h4>
+                                        <ul class="follow-per">
+                                            <li>5.678 người theo dõi</li>
+                                            <li>638 học viên</li>
+                                            <li>1.683 lần tư vấn</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-3 btn-infomation">
+                                        <a class="btn-datlich" href="#">Đặt lịch tư vấn</a>
+                                        <a class="btn-follow" href="#">Theo dõi</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row row-personal-dashboard">
+                    <div class="col-lg-3">
+                        <!-- Status -->
+                        <div class="div-status">
+                            <ul>
+                                <li> <img src="./assets/img/Rectangle 432.png" alt=""> Hoạt động</li>
+                                <li> <img src="./assets/img/1.png" alt="">Trạng thái</li>
+                                <li> <img src="./assets/img/Rectangle 373.png" alt="">Blog</li>
+                                <li> <img src="./assets/img/Rectangle 398.png" alt="">Thảo luận</li>
+                                <li> <img src="./assets/img/Rectangle 379.png" alt="">Khoá học</li>
+                                <li> <img src="./assets/img/2.png" alt="">Chuyên gia</li>
+                                <li> <img src="./assets/img/Rectangle 380.png" alt="">Giới thiệu</li>
+                            </ul>
+                        </div>
+                        <!-- end -->
+                    </div>
+                    <div class="col-lg-6">
+                        <!-- Đăng tin cá nhân -->
+                        <div class="profilecomposer">
+                            <textarea class='autoExpand' rows='3' data-min-rows='3' placeholder='Hãy chọn chủ đề phù hợp để tiếp cận đúng khán giả của bạn...' autofocus></textarea>
+                            <div class="row text-composer">
+                                <div class="col-lg-2 col-2 col-sm-2 d-flex">
+                                    <p class="text-font">Aa</p>
+                                    <img class="uploadimg" src="./assets/img/Rectangle 411.png" alt="">
+                                </div>
+                                <div class="col-lg-8 col-8 col-sm-8 topic">
+                                    <ul class="title-topic">
+                                        <li>Khởi nghiệp</li>
+                                        <li>Bất động sản</li>
+                                        <li>Vàng</li>
+                                    </ul>
+                                    <p class="title-it3">(chọn tối đa 3 chủ đề)</p>
+                                </div>
+                                <div class="col-lg-2 col-2 col-sm-2"><a class="btn-up" href="#"> Đăng</a></div>
+                            </div>
+                            <hr style="margin: 0;">
+                            <div class="choose-topic">
+                                <div class="cdt-list-tab row">
+                                    <div class="col-lg-2">
+                                        <span>Chọn chủ đề: </span>
+                                    </div>
+                                    <div class="col-lg-9">
+                                        <div class="catagory-slide">
+                                            <div class="owl-carousel owl-theme">
+                                                <div class="item clickitem-topic ">
+                                                    <h4>Khởi nghiệp</h4>
+                                                </div>
+                                                <div class="item clickitem-topic">
+                                                    <h4>Kinh doanh</h4>
+                                                </div>
+                                                <div class="item clickitem-topic">
+                                                    <h4>Bất động sản</h4>
+                                                </div>
+                                                <div class="item clickitem-topic">
+                                                    <h4>Chứng khoán</h4>
+                                                </div>
+                                                <div class="item clickitem-topic">
+                                                    <h4>Vàng</h4>
+                                                </div>
+                                                <div class="item clickitem-topic">
+                                                    <h4>Bạc</h4>
+                                                </div>
+
+                                                <div class="item clickitem-topic">
+                                                    <h4>Ngoại hối</h4>
+                                                </div>
+                                                <div class="item clickitem-topic">
+                                                    <h4>Kim cương</h4>
+                                                </div>
+                                                <div class="item clickitem-topic">
+                                                    <h4>Số hoá</h4>
+                                                </div>
+
+                                                <div class="item clickitem-topic">
+                                                    <h4>Khác</h4>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-1">
+                                        <span class="scrool-text">(kéo qua lại) </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End -->
+                        <!-- Trạng thái -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="mb-0 media">
+                                    <div class="avatar rounded-circle "><img class="rounded-circle " src="./assets/img/avatar.jpg" alt=""></div>
+                                    <div class="media-body ml-1">
+                                        <p class="mb-0 name"><a href="#">Nguyễn Hoàng Long</a></p>
+                                        <p class="mb-0 hour">10 giờ trước • <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="globe-americas" class="svg-inline--fa" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                                    <path fill="currentColor"
+                                                        d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm82.29 357.6c-3.9 3.88-7.99 7.95-11.31 11.28-2.99 3-5.1 6.7-6.17 10.71-1.51 5.66-2.73 11.38-4.77 16.87l-17.39 46.85c-13.76 3-28 4.69-42.65 4.69v-27.38c1.69-12.62-7.64-36.26-22.63-51.25-6-6-9.37-14.14-9.37-22.63v-32.01c0-11.64-6.27-22.34-16.46-27.97-14.37-7.95-34.81-19.06-48.81-26.11-11.48-5.78-22.1-13.14-31.65-21.75l-.8-.72a114.792 114.792 0 0 1-18.06-20.74c-9.38-13.77-24.66-36.42-34.59-51.14 20.47-45.5 57.36-82.04 103.2-101.89l24.01 12.01C203.48 89.74 216 82.01 216 70.11v-11.3c7.99-1.29 16.12-2.11 24.39-2.42l28.3 28.3c6.25 6.25 6.25 16.38 0 22.63L264 112l-10.34 10.34c-3.12 3.12-3.12 8.19 0 11.31l4.69 4.69c3.12 3.12 3.12 8.19 0 11.31l-8 8a8.008 8.008 0 0 1-5.66 2.34h-8.99c-2.08 0-4.08.81-5.58 2.27l-9.92 9.65a8.008 8.008 0 0 0-1.58 9.31l15.59 31.19c2.66 5.32-1.21 11.58-7.15 11.58h-5.64c-1.93 0-3.79-.7-5.24-1.96l-9.28-8.06a16.017 16.017 0 0 0-15.55-3.1l-31.17 10.39a11.95 11.95 0 0 0-8.17 11.34c0 4.53 2.56 8.66 6.61 10.69l11.08 5.54c9.41 4.71 19.79 7.16 30.31 7.16s22.59 27.29 32 32h66.75c8.49 0 16.62 3.37 22.63 9.37l13.69 13.69a30.503 30.503 0 0 1 8.93 21.57 46.536 46.536 0 0 1-13.72 32.98zM417 274.25c-5.79-1.45-10.84-5-14.15-9.97l-17.98-26.97a23.97 23.97 0 0 1 0-26.62l19.59-29.38c2.32-3.47 5.5-6.29 9.24-8.15l12.98-6.49C440.2 193.59 448 223.87 448 256c0 8.67-.74 17.16-1.82 25.54L417 274.25z">
+                                                    </path>
+                                                </svg></p>
+                                    </div>
+                                    <div class="follow">
+                                        <a class="btn-follow" href="#">Theo dõi</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-text">
+                                    <p>Là một mô hình kinh doanh thương mại điện tử cho phép các doanh nhân tìm và bán các sản phẩm mà không bao giờ phải lo lắng về vấn đề sản xuất sản phẩm hay tồn kho. Vậy làm thế nào để bắt đầu với Dropshipping?</p>
+
+                                    <p> Công thức tăng trưởng trong Thương mại điện tử là gì? Làm thế nào để tối ưu tỉ lệ chuyển đổi (CR) và giá trị đơn hàng trung bình (AOV). Cùng theo dõi Webinar này để hiểu rõ hơn về mô hình kiếm tiền đầy tiềm năng này!
+                                    </p>
+                                </div>
+                                <div class="mb-img">
+                                    <div class="pety-images-grid">
+                                        <div class="grid-container">
+                                            <div class="height-one">
+                                                <div class="image-background">
+                                                    <img src="./assets/img/Rectangle 40.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="border-bottom border-200">
+                                    <div class="font-weight-semi-bold text-center py-2 fs--1 no-gutters row">
+                                        <div class="col-auto">
+                                            <div class="d-flex align-items-center rounded text-700 mr-3 cursor-pointer">
+                                                <div class="d-flex hover-scale" style="line-height: 20px;">
+                                                    <button><img src="./assets/img/tym.png" alt="reacted" width="20"
+                                                                height="20"><span class="ml-1"
+                                                                style="transform: scale(1); line-height: 20px;">
+                                                                <span>Cảm xúc</span>
+                                                                <div class="emoji-container">
+                                                                    <div class="emoji like">
+                                                                        <div class="icon" data-title="Like"></div>
+                                                                    </div>
+                                                                    <div class="emoji love">
+                                                                        <div class="icon" data-title="Love"></div>
+                                                                    </div>
+                                                                    <div class="emoji haha">
+                                                                        <div class="icon" data-title="Haha"></div>
+                                                                    </div>
+                                                                    <div class="emoji wow">
+                                                                        <div class="icon" data-title="Wow"></div>
+                                                                    </div>
+                                                                    <div class="emoji sad">
+                                                                        <div class="icon" data-title="Sad"></div>
+                                                                    </div>
+                                                                    <div class="emoji angry">
+                                                                        <div class="icon" data-title="Angry"></div>
+                                                                    </div>
+                                                                </div>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="d-flex align-items-center rounded text-700 mr-3 cursor-pointer hover-scale">
+                                                <img src="./assets/img/cmt.png" alt="" width="20"><span class="ml-1" style="transform: scale(1); line-height: 20px;">Bình luận</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="d-flex align-items-center rounded text-700 mr-3 cursor-pointer hover-scale">
+                                                <img src="./assets/img/share.png" alt="" width="20"><span class="ml-1" style="transform: scale(1);">Chia sẻ</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form class="d-flex align-items-center pt-3 cmt-info">
+                                    <div class="avatar avatar-xl ">
+                                        <img class="rounded-circle " src="./assets/img/avatar.jpg" alt="">
+                                    </div>
+                                    <div class="fs--1 w-100">
+                                        <div class="position-relative">
+                                            <textarea rows="1" placeholder="Viết bình luận..." class="ml-2 pr-7 fs--1  form-control" style="resize: none; line-height: 16px; overflow: hidden;"></textarea>
+                                            <div role="group" class="position-absolute btn-group" style="right: 0px; bottom: 0.1rem;">
+                                                <button type="button" class="btn-default ">
+                                                        <svg class="svg-inline--fa" role="img"
+                                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                            <path fill="currentColor"
+                                                                d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z">
+                                                            </path>
+                                                        </svg></button>
+
+                                                <div class="dropdown">
+                                                    <button type="button" class="nav-link p-0 mx-1 text-500 hover-scale btn btn-default ">
+                                                            <svg class="svg-inline--fa" role="img"
+                                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                                                <path fill="currentColor"
+                                                                    d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 448c-110.3 0-200-89.7-200-200S137.7 56 248 56s200 89.7 200 200-89.7 200-200 200zm-80-216c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32zm160-64c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32zm8 144H160c-13.2 0-24 10.8-24 24s10.8 24 24 24h176c13.2 0 24-10.8 24-24s-10.8-24-24-24z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                        <!-- ENd -->
+                        <!-- Trạng thái text and bg-->
+                        <div class="card card-textbg">
+                            <div class="card-header">
+                                <div class="mb-0 media">
+                                    <div class="avatar rounded-circle "><img class="rounded-circle " src="./assets/img/avatar.jpg" alt=""></div>
+                                    <div class="media-body ml-1">
+                                        <p class="mb-0 name"><a href="#">Nguyễn Hoàng Long</a></p>
+                                        <p class="mb-0 hour">10 giờ trước • <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="globe-americas" class="svg-inline--fa" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                                    <path fill="currentColor"
+                                                        d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm82.29 357.6c-3.9 3.88-7.99 7.95-11.31 11.28-2.99 3-5.1 6.7-6.17 10.71-1.51 5.66-2.73 11.38-4.77 16.87l-17.39 46.85c-13.76 3-28 4.69-42.65 4.69v-27.38c1.69-12.62-7.64-36.26-22.63-51.25-6-6-9.37-14.14-9.37-22.63v-32.01c0-11.64-6.27-22.34-16.46-27.97-14.37-7.95-34.81-19.06-48.81-26.11-11.48-5.78-22.1-13.14-31.65-21.75l-.8-.72a114.792 114.792 0 0 1-18.06-20.74c-9.38-13.77-24.66-36.42-34.59-51.14 20.47-45.5 57.36-82.04 103.2-101.89l24.01 12.01C203.48 89.74 216 82.01 216 70.11v-11.3c7.99-1.29 16.12-2.11 24.39-2.42l28.3 28.3c6.25 6.25 6.25 16.38 0 22.63L264 112l-10.34 10.34c-3.12 3.12-3.12 8.19 0 11.31l4.69 4.69c3.12 3.12 3.12 8.19 0 11.31l-8 8a8.008 8.008 0 0 1-5.66 2.34h-8.99c-2.08 0-4.08.81-5.58 2.27l-9.92 9.65a8.008 8.008 0 0 0-1.58 9.31l15.59 31.19c2.66 5.32-1.21 11.58-7.15 11.58h-5.64c-1.93 0-3.79-.7-5.24-1.96l-9.28-8.06a16.017 16.017 0 0 0-15.55-3.1l-31.17 10.39a11.95 11.95 0 0 0-8.17 11.34c0 4.53 2.56 8.66 6.61 10.69l11.08 5.54c9.41 4.71 19.79 7.16 30.31 7.16s22.59 27.29 32 32h66.75c8.49 0 16.62 3.37 22.63 9.37l13.69 13.69a30.503 30.503 0 0 1 8.93 21.57 46.536 46.536 0 0 1-13.72 32.98zM417 274.25c-5.79-1.45-10.84-5-14.15-9.97l-17.98-26.97a23.97 23.97 0 0 1 0-26.62l19.59-29.38c2.32-3.47 5.5-6.29 9.24-8.15l12.98-6.49C440.2 193.59 448 223.87 448 256c0 8.67-.74 17.16-1.82 25.54L417 274.25z">
+                                                    </path>
+                                                </svg></p>
+                                    </div>
+                                    <div class="follow">
+                                        <a class="btn-follow" href="#">Theo dõi</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-text one-text">
+                                    <h3>Học cách trở nên độc lập về tài chính</h3>
+                                </div>
+
+                            </div>
+                            <div class="card-footer">
+                                <div class="border-bottom border-200">
+                                    <div class="font-weight-semi-bold text-center py-2 fs--1 no-gutters row">
+                                        <div class="col-auto">
+                                            <div class="d-flex align-items-center rounded text-700 mr-3 cursor-pointer">
+                                                <div class="d-flex hover-scale" style="line-height: 20px;">
+                                                    <button><img src="./assets/img/tym.png" alt="reacted" width="20"
+                                                                height="20"><span class="ml-1"
+                                                                style="transform: scale(1); line-height: 20px;">
+                                                                <span>Cảm xúc</span>
+                                                                <div class="emoji-container">
+                                                                    <div class="emoji like">
+                                                                        <div class="icon" data-title="Like"></div>
+                                                                    </div>
+                                                                    <div class="emoji love">
+                                                                        <div class="icon" data-title="Love"></div>
+                                                                    </div>
+                                                                    <div class="emoji haha">
+                                                                        <div class="icon" data-title="Haha"></div>
+                                                                    </div>
+                                                                    <div class="emoji wow">
+                                                                        <div class="icon" data-title="Wow"></div>
+                                                                    </div>
+                                                                    <div class="emoji sad">
+                                                                        <div class="icon" data-title="Sad"></div>
+                                                                    </div>
+                                                                    <div class="emoji angry">
+                                                                        <div class="icon" data-title="Angry"></div>
+                                                                    </div>
+                                                                </div>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="d-flex align-items-center rounded text-700 mr-3 cursor-pointer hover-scale">
+                                                <img src="./assets/img/cmt.png" alt="" width="20"><span class="ml-1" style="transform: scale(1); line-height: 20px;">Bình luận</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="d-flex align-items-center rounded text-700 mr-3 cursor-pointer hover-scale">
+                                                <img src="./assets/img/share.png" alt="" width="20"><span class="ml-1" style="transform: scale(1);">Chia sẻ</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form class="d-flex align-items-center pt-3 cmt-info">
+                                    <div class="avatar avatar-xl ">
+                                        <img class="rounded-circle " src="./assets/img/avatar.jpg" alt="">
+                                    </div>
+                                    <div class="fs--1 w-100">
+                                        <div class="position-relative">
+                                            <textarea rows="1" placeholder="Viết bình luận..." class="ml-2 pr-7 fs--1  form-control" style="resize: none; line-height: 16px; overflow: hidden;"></textarea>
+                                            <div role="group" class="position-absolute btn-group" style="right: 0px; bottom: 0.1rem;">
+                                                <button type="button" class="btn-default ">
+                                                        <svg class="svg-inline--fa" role="img"
+                                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                            <path fill="currentColor"
+                                                                d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z">
+                                                            </path>
+                                                        </svg></button>
+
+                                                <div class="dropdown">
+                                                    <button type="button" class="nav-link p-0 mx-1 text-500 hover-scale btn btn-default ">
+                                                            <svg class="svg-inline--fa" role="img"
+                                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                                                <path fill="currentColor"
+                                                                    d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 448c-110.3 0-200-89.7-200-200S137.7 56 248 56s200 89.7 200 200-89.7 200-200 200zm-80-216c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32zm160-64c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32zm8 144H160c-13.2 0-24 10.8-24 24s10.8 24 24 24h176c13.2 0 24-10.8 24-24s-10.8-24-24-24z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                        <!-- ENd -->
+                        <!-- Trạng thái bài viết-->
+                        <div class="card card-blogpost">
+                            <div class="card-header">
+                                <div class="mb-0 media">
+                                    <div class="avatar rounded-circle "><img class="rounded-circle " src="./assets/img/avatar.jpg" alt=""></div>
+                                    <div class="media-body ml-1">
+                                        <p class="mb-0 name"><a href="#">Nguyễn Hoàng Long</a></p>
+                                        <p class="mb-0 hour">10 giờ trước • <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="globe-americas" class="svg-inline--fa" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                                    <path fill="currentColor"
+                                                        d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm82.29 357.6c-3.9 3.88-7.99 7.95-11.31 11.28-2.99 3-5.1 6.7-6.17 10.71-1.51 5.66-2.73 11.38-4.77 16.87l-17.39 46.85c-13.76 3-28 4.69-42.65 4.69v-27.38c1.69-12.62-7.64-36.26-22.63-51.25-6-6-9.37-14.14-9.37-22.63v-32.01c0-11.64-6.27-22.34-16.46-27.97-14.37-7.95-34.81-19.06-48.81-26.11-11.48-5.78-22.1-13.14-31.65-21.75l-.8-.72a114.792 114.792 0 0 1-18.06-20.74c-9.38-13.77-24.66-36.42-34.59-51.14 20.47-45.5 57.36-82.04 103.2-101.89l24.01 12.01C203.48 89.74 216 82.01 216 70.11v-11.3c7.99-1.29 16.12-2.11 24.39-2.42l28.3 28.3c6.25 6.25 6.25 16.38 0 22.63L264 112l-10.34 10.34c-3.12 3.12-3.12 8.19 0 11.31l4.69 4.69c3.12 3.12 3.12 8.19 0 11.31l-8 8a8.008 8.008 0 0 1-5.66 2.34h-8.99c-2.08 0-4.08.81-5.58 2.27l-9.92 9.65a8.008 8.008 0 0 0-1.58 9.31l15.59 31.19c2.66 5.32-1.21 11.58-7.15 11.58h-5.64c-1.93 0-3.79-.7-5.24-1.96l-9.28-8.06a16.017 16.017 0 0 0-15.55-3.1l-31.17 10.39a11.95 11.95 0 0 0-8.17 11.34c0 4.53 2.56 8.66 6.61 10.69l11.08 5.54c9.41 4.71 19.79 7.16 30.31 7.16s22.59 27.29 32 32h66.75c8.49 0 16.62 3.37 22.63 9.37l13.69 13.69a30.503 30.503 0 0 1 8.93 21.57 46.536 46.536 0 0 1-13.72 32.98zM417 274.25c-5.79-1.45-10.84-5-14.15-9.97l-17.98-26.97a23.97 23.97 0 0 1 0-26.62l19.59-29.38c2.32-3.47 5.5-6.29 9.24-8.15l12.98-6.49C440.2 193.59 448 223.87 448 256c0 8.67-.74 17.16-1.82 25.54L417 274.25z">
+                                                    </path>
+                                                </svg></p>
+                                    </div>
+                                    <div class="follow">
+                                        <a class="btn-follow" href="#">Theo dõi</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-text">
+                                    <p>Là một mô hình kinh doanh thương mại điện tử cho phép các doanh nhân tìm và bán các sản phẩm mà không bao giờ phải lo lắng về vấn đề sản xuất sản phẩm hay tồn kho. Vậy làm thế nào để bắt đầu với Dropshipping?</p>
+                                </div>
+                                <div class="mb-img">
+                                    <div class="pety-images-grid">
+                                        <div class="grid-container">
+                                            <div class="height-one">
+                                                <div class="image-background">
+                                                    <img src="./assets/img/Rectangle 4.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-titleblog">
+                                    <h3 class="title">Tiêu đề blog</h3>
+                                    <p class="description">Công thức tăng trưởng trong Thương mại điện tử là gì? </p>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="border-bottom border-200">
+                                    <div class="font-weight-semi-bold text-center py-2 fs--1 no-gutters row">
+                                        <div class="col-auto">
+                                            <div class="d-flex align-items-center rounded text-700 mr-3 cursor-pointer">
+                                                <div class="d-flex hover-scale" style="line-height: 20px;">
+                                                    <button><img src="./assets/img/tym.png" alt="reacted" width="20"
+                                                                height="20"><span class="ml-1"
+                                                                style="transform: scale(1); line-height: 20px;">
+                                                                <span>Cảm xúc</span>
+                                                                <div class="emoji-container">
+                                                                    <div class="emoji like">
+                                                                        <div class="icon" data-title="Like"></div>
+                                                                    </div>
+                                                                    <div class="emoji love">
+                                                                        <div class="icon" data-title="Love"></div>
+                                                                    </div>
+                                                                    <div class="emoji haha">
+                                                                        <div class="icon" data-title="Haha"></div>
+                                                                    </div>
+                                                                    <div class="emoji wow">
+                                                                        <div class="icon" data-title="Wow"></div>
+                                                                    </div>
+                                                                    <div class="emoji sad">
+                                                                        <div class="icon" data-title="Sad"></div>
+                                                                    </div>
+                                                                    <div class="emoji angry">
+                                                                        <div class="icon" data-title="Angry"></div>
+                                                                    </div>
+                                                                </div>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="d-flex align-items-center rounded text-700 mr-3 cursor-pointer hover-scale">
+                                                <img src="./assets/img/cmt.png" alt="" width="20"><span class="ml-1" style="transform: scale(1); line-height: 20px;">Bình luận</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="d-flex align-items-center rounded text-700 mr-3 cursor-pointer hover-scale">
+                                                <img src="./assets/img/share.png" alt="" width="20"><span class="ml-1" style="transform: scale(1);">Chia sẻ</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form class="d-flex align-items-center pt-3 cmt-info">
+                                    <div class="avatar avatar-xl ">
+                                        <img class="rounded-circle " src="./assets/img/avatar.jpg" alt="">
+                                    </div>
+                                    <div class="fs--1 w-100">
+                                        <div class="position-relative">
+                                            <textarea rows="1" placeholder="Viết bình luận..." class="ml-2 pr-7 fs--1  form-control" style="resize: none; line-height: 16px; overflow: hidden;"></textarea>
+                                            <div role="group" class="position-absolute btn-group" style="right: 0px; bottom: 0.1rem;">
+                                                <button type="button" class="btn-default ">
+                                                        <svg class="svg-inline--fa" role="img"
+                                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                            <path fill="currentColor"
+                                                                d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z">
+                                                            </path>
+                                                        </svg></button>
+
+                                                <div class="dropdown">
+                                                    <button type="button" class="nav-link p-0 mx-1 text-500 hover-scale btn btn-default ">
+                                                            <svg class="svg-inline--fa" role="img"
+                                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                                                <path fill="currentColor"
+                                                                    d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 448c-110.3 0-200-89.7-200-200S137.7 56 248 56s200 89.7 200 200-89.7 200-200 200zm-80-216c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32zm160-64c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32zm8 144H160c-13.2 0-24 10.8-24 24s10.8 24 24 24h176c13.2 0 24-10.8 24-24s-10.8-24-24-24z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                        <!-- ENd -->
+                        <!-- Trạng thái share -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="mb-text text-share">
+                                    <h5>Anh em chia sẻ kinh nghiệm quản lý tài chính cá nhân giúp mình nhé?</h5>
+                                    <p><img class="rounded-circle " src="./assets/img/a5.jpg" alt=""> <span>Nguyen Văn D</span> Thời gian: 02/02/2020, chủ đề: Tài chính cá nhân</p>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="border-bottom border-200">
+                                    <div class="font-weight-semi-bold text-center py-2 fs--1 no-gutters row">
+                                        <div class="col-auto">
+                                            <div class="d-flex align-items-center rounded text-700 mr-3 cursor-pointer">
+                                                <div class="d-flex hover-scale" style="line-height: 20px;">
+                                                    <button><img src="./assets/img/tym.png" alt="reacted" width="20"
+                                                                height="20"><span class="ml-1"
+                                                                style="transform: scale(1); line-height: 20px;">
+                                                                <span>Cảm xúc</span>
+                                                                <div class="emoji-container">
+                                                                    <div class="emoji like">
+                                                                        <div class="icon" data-title="Like"></div>
+                                                                    </div>
+                                                                    <div class="emoji love">
+                                                                        <div class="icon" data-title="Love"></div>
+                                                                    </div>
+                                                                    <div class="emoji haha">
+                                                                        <div class="icon" data-title="Haha"></div>
+                                                                    </div>
+                                                                    <div class="emoji wow">
+                                                                        <div class="icon" data-title="Wow"></div>
+                                                                    </div>
+                                                                    <div class="emoji sad">
+                                                                        <div class="icon" data-title="Sad"></div>
+                                                                    </div>
+                                                                    <div class="emoji angry">
+                                                                        <div class="icon" data-title="Angry"></div>
+                                                                    </div>
+                                                                </div>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="d-flex align-items-center rounded text-700 mr-3 cursor-pointer hover-scale">
+                                                <img src="./assets/img/cmt.png" alt="" width="20"><span class="ml-1" style="transform: scale(1); line-height: 20px;">Bình luận</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="d-flex align-items-center rounded text-700 mr-3 cursor-pointer hover-scale">
+                                                <img src="./assets/img/share.png" alt="" width="20"><span class="ml-1" style="transform: scale(1);">Chia sẻ</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form class="d-flex align-items-center pt-3 cmt-info">
+                                    <div class="avatar avatar-xl ">
+                                        <img class="rounded-circle " src="./assets/img/avatar.jpg" alt="">
+                                    </div>
+                                    <div class="fs--1 w-100">
+                                        <div class="position-relative">
+                                            <textarea rows="1" placeholder="Viết bình luận..." class="ml-2 pr-7 fs--1  form-control" style="resize: none; line-height: 16px; overflow: hidden;"></textarea>
+                                            <div role="group" class="position-absolute btn-group" style="right: 0px; bottom: 0.1rem;">
+                                                <button type="button" class="btn-default ">
+                                                        <svg class="svg-inline--fa" role="img"
+                                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                            <path fill="currentColor"
+                                                                d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z">
+                                                            </path>
+                                                        </svg></button>
+
+                                                <div class="dropdown">
+                                                    <button type="button" class="nav-link p-0 mx-1 text-500 hover-scale btn btn-default ">
+                                                            <svg class="svg-inline--fa" role="img"
+                                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                                                <path fill="currentColor"
+                                                                    d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 448c-110.3 0-200-89.7-200-200S137.7 56 248 56s200 89.7 200 200-89.7 200-200 200zm-80-216c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32zm160-64c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32zm8 144H160c-13.2 0-24 10.8-24 24s10.8 24 24 24h176c13.2 0 24-10.8 24-24s-10.8-24-24-24z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                        <!-- ENd -->
+                        <!-- Trạng thái bài viết-->
+                        <div class="card card-blogpost">
+                            <div class="card-header">
+                                <div class="mb-0 media">
+                                    <div class="avatar rounded-circle "><img class="rounded-circle " src="./assets/img/avatar.jpg" alt=""></div>
+                                    <div class="media-body ml-1">
+                                        <p class="mb-0 name"><a href="#">Nguyễn Hoàng Long</a></p>
+                                        <p class="mb-0 hour">10 giờ trước • <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="globe-americas" class="svg-inline--fa" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                                    <path fill="currentColor"
+                                                        d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm82.29 357.6c-3.9 3.88-7.99 7.95-11.31 11.28-2.99 3-5.1 6.7-6.17 10.71-1.51 5.66-2.73 11.38-4.77 16.87l-17.39 46.85c-13.76 3-28 4.69-42.65 4.69v-27.38c1.69-12.62-7.64-36.26-22.63-51.25-6-6-9.37-14.14-9.37-22.63v-32.01c0-11.64-6.27-22.34-16.46-27.97-14.37-7.95-34.81-19.06-48.81-26.11-11.48-5.78-22.1-13.14-31.65-21.75l-.8-.72a114.792 114.792 0 0 1-18.06-20.74c-9.38-13.77-24.66-36.42-34.59-51.14 20.47-45.5 57.36-82.04 103.2-101.89l24.01 12.01C203.48 89.74 216 82.01 216 70.11v-11.3c7.99-1.29 16.12-2.11 24.39-2.42l28.3 28.3c6.25 6.25 6.25 16.38 0 22.63L264 112l-10.34 10.34c-3.12 3.12-3.12 8.19 0 11.31l4.69 4.69c3.12 3.12 3.12 8.19 0 11.31l-8 8a8.008 8.008 0 0 1-5.66 2.34h-8.99c-2.08 0-4.08.81-5.58 2.27l-9.92 9.65a8.008 8.008 0 0 0-1.58 9.31l15.59 31.19c2.66 5.32-1.21 11.58-7.15 11.58h-5.64c-1.93 0-3.79-.7-5.24-1.96l-9.28-8.06a16.017 16.017 0 0 0-15.55-3.1l-31.17 10.39a11.95 11.95 0 0 0-8.17 11.34c0 4.53 2.56 8.66 6.61 10.69l11.08 5.54c9.41 4.71 19.79 7.16 30.31 7.16s22.59 27.29 32 32h66.75c8.49 0 16.62 3.37 22.63 9.37l13.69 13.69a30.503 30.503 0 0 1 8.93 21.57 46.536 46.536 0 0 1-13.72 32.98zM417 274.25c-5.79-1.45-10.84-5-14.15-9.97l-17.98-26.97a23.97 23.97 0 0 1 0-26.62l19.59-29.38c2.32-3.47 5.5-6.29 9.24-8.15l12.98-6.49C440.2 193.59 448 223.87 448 256c0 8.67-.74 17.16-1.82 25.54L417 274.25z">
+                                                    </path>
+                                                </svg></p>
+                                    </div>
+                                    <div class="follow">
+                                        <a class="btn-follow" href="#">Theo dõi</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-text">
+                                    <p>Là một mô hình kinh doanh thương mại điện tử cho phép các doanh nhân tìm và bán các sản phẩm mà không bao giờ phải lo lắng về vấn đề sản xuất sản phẩm hay tồn kho. Vậy làm thế nào để bắt đầu với Dropshipping?</p>
+                                </div>
+                                <div class="mb-img">
+                                    <div class="pety-images-grid">
+                                        <div class="grid-container">
+                                            <div class="height-one">
+                                                <div class="image-background">
+                                                    <img src="./assets/img/a14.jpg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-titleblog">
+                                    <h2 class="name-link">BALOTECH.COM</h2>
+                                    <h3 class="title">Tiêu đề blog</h3>
+                                    <p class="description">Công thức tăng trưởng trong Thương mại điện tử là gì? </p>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="border-bottom border-200">
+                                    <div class="font-weight-semi-bold text-center py-2 fs--1 no-gutters row">
+                                        <div class="col-auto">
+                                            <div class="d-flex align-items-center rounded text-700 mr-3 cursor-pointer">
+                                                <div class="d-flex hover-scale" style="line-height: 20px;">
+                                                    <button><img src="./assets/img/tym.png" alt="reacted" width="20"
+                                                                height="20"><span class="ml-1"
+                                                                style="transform: scale(1); line-height: 20px;">
+                                                                <span>Cảm xúc</span>
+                                                                <div class="emoji-container">
+                                                                    <div class="emoji like">
+                                                                        <div class="icon" data-title="Like"></div>
+                                                                    </div>
+                                                                    <div class="emoji love">
+                                                                        <div class="icon" data-title="Love"></div>
+                                                                    </div>
+                                                                    <div class="emoji haha">
+                                                                        <div class="icon" data-title="Haha"></div>
+                                                                    </div>
+                                                                    <div class="emoji wow">
+                                                                        <div class="icon" data-title="Wow"></div>
+                                                                    </div>
+                                                                    <div class="emoji sad">
+                                                                        <div class="icon" data-title="Sad"></div>
+                                                                    </div>
+                                                                    <div class="emoji angry">
+                                                                        <div class="icon" data-title="Angry"></div>
+                                                                    </div>
+                                                                </div>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="d-flex align-items-center rounded text-700 mr-3 cursor-pointer hover-scale">
+                                                <img src="./assets/img/cmt.png" alt="" width="20"><span class="ml-1" style="transform: scale(1); line-height: 20px;">Bình luận</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="d-flex align-items-center rounded text-700 mr-3 cursor-pointer hover-scale">
+                                                <img src="./assets/img/share.png" alt="" width="20"><span class="ml-1" style="transform: scale(1);">Chia sẻ</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form class="d-flex align-items-center pt-3 cmt-info">
+                                    <div class="avatar avatar-xl ">
+                                        <img class="rounded-circle " src="./assets/img/avatar.jpg" alt="">
+                                    </div>
+                                    <div class="fs--1 w-100">
+                                        <div class="position-relative">
+                                            <textarea rows="1" placeholder="Viết bình luận..." class="ml-2 pr-7 fs--1  form-control" style="resize: none; line-height: 16px; overflow: hidden;"></textarea>
+                                            <div role="group" class="position-absolute btn-group" style="right: 0px; bottom: 0.1rem;">
+                                                <button type="button" class="btn-default ">
+                                                        <svg class="svg-inline--fa" role="img"
+                                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                            <path fill="currentColor"
+                                                                d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z">
+                                                            </path>
+                                                        </svg></button>
+
+                                                <div class="dropdown">
+                                                    <button type="button" class="nav-link p-0 mx-1 text-500 hover-scale btn btn-default ">
+                                                            <svg class="svg-inline--fa" role="img"
+                                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                                                <path fill="currentColor"
+                                                                    d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 448c-110.3 0-200-89.7-200-200S137.7 56 248 56s200 89.7 200 200-89.7 200-200 200zm-80-216c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32zm160-64c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32zm8 144H160c-13.2 0-24 10.8-24 24s10.8 24 24 24h176c13.2 0 24-10.8 24-24s-10.8-24-24-24z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                        <!-- ENd -->
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="people-follow">
+                            <div class="head-title">
+                                <h4>Đang theo dõi <span>125 người</span></h4>
+                            </div>
+                            <div class="item-people">
+                                <ul class="number-item">
+                                    <li>
+                                        <div class="people-follows">
+                                            <div class="mb-0 media">
+                                                <div class="avatar rounded-circle "><img class="rounded-circle " src="./assets/img/a1.jpg" alt=""></div>
+                                                <div class="media-body ml-1">
+                                                    <p class="mb-0 name"><a href="#">Nguyễn Hoàng Long</a></p>
+                                                    <p class="mb-0 hour">126 câu trả lời</p>
+                                                </div>
+                                                <div class="follow">
+                                                    <a class="btn-follow" href="#">Theo dõi</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="people-follows">
+                                            <div class="mb-0 media">
+                                                <div class="avatar rounded-circle "><img class="rounded-circle " src="./assets/img/a2.webp" alt=""></div>
+                                                <div class="media-body ml-1">
+                                                    <p class="mb-0 name"><a href="#">Trần Văn Anh</a></p>
+                                                    <p class="mb-0 hour">126 câu trả lời</p>
+                                                </div>
+                                                <div class="follow">
+                                                    <a class="btn-follow" href="#">Theo dõi</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="people-follows">
+                                            <div class="mb-0 media">
+                                                <div class="avatar rounded-circle "><img class="rounded-circle " src="./assets/img/a3.jpg" alt=""></div>
+                                                <div class="media-body ml-1">
+                                                    <p class="mb-0 name"><a href="#">Nguyễn Minh Anh</a></p>
+                                                    <p class="mb-0 hour">126 câu trả lời</p>
+                                                </div>
+                                                <div class="follow">
+                                                    <a class="btn-follow" href="#">Theo dõi</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="people-follows">
+                                            <div class="mb-0 media">
+                                                <div class="avatar rounded-circle "><img class="rounded-circle " src="./assets/img/a4.webp" alt=""></div>
+                                                <div class="media-body ml-1">
+                                                    <p class="mb-0 name"><a href="#">Lê Hoài Thương</a></p>
+                                                    <p class="mb-0 hour">126 câu trả lời</p>
+                                                </div>
+                                                <div class="follow">
+                                                    <a class="btn-follow" href="#">Theo dõi</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="people-follows">
+                                            <div class="mb-0 media">
+                                                <div class="avatar rounded-circle "><img class="rounded-circle " src="./assets/img/a5.jpg" alt=""></div>
+                                                <div class="media-body ml-1">
+                                                    <p class="mb-0 name"><a href="#">Nguyễn Anh Đức</a></p>
+                                                    <p class="mb-0 hour">126 câu trả lời</p>
+                                                </div>
+                                                <div class="follow">
+                                                    <a class="btn-follow" href="#">Theo dõi</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="people-follows">
+                                            <div class="mb-0 media">
+                                                <div class="avatar rounded-circle "><img class="rounded-circle " src="./assets/img/a6.webp" alt=""></div>
+                                                <div class="media-body ml-1">
+                                                    <p class="mb-0 name"><a href="#">Công Phượng</a></p>
+                                                    <p class="mb-0 hour">126 câu trả lời</p>
+                                                </div>
+                                                <div class="follow">
+                                                    <a class="btn-follow" href="#">Theo dõi</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="people-follows">
+                                            <div class="mb-0 media">
+                                                <div class="avatar rounded-circle "><img class="rounded-circle " src="./assets/img/a7.jpg" alt=""></div>
+                                                <div class="media-body ml-1">
+                                                    <p class="mb-0 name"><a href="#">Vân Anh</a></p>
+                                                    <p class="mb-0 hour">126 câu trả lời</p>
+                                                </div>
+                                                <div class="follow">
+                                                    <a class="btn-follow" href="#">Theo dõi</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="people-follows">
+                                            <div class="mb-0 media">
+                                                <div class="avatar rounded-circle "><img class="rounded-circle " src="./assets/img/a8.jpg" alt=""></div>
+                                                <div class="media-body ml-1">
+                                                    <p class="mb-0 name"><a href="#">Nguyễn Hoàng Thái</a></p>
+                                                    <p class="mb-0 hour">126 câu trả lời</p>
+                                                </div>
+                                                <div class="follow">
+                                                    <a class="btn-follow" href="#">Theo dõi</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="people-follows">
+                                            <div class="mb-0 media">
+                                                <div class="avatar rounded-circle "><img class="rounded-circle " src="./assets/img/a9.jpg" alt=""></div>
+                                                <div class="media-body ml-1">
+                                                    <p class="mb-0 name"><a href="#">Lê Hoàng Long</a></p>
+                                                    <p class="mb-0 hour">126 câu trả lời</p>
+                                                </div>
+                                                <div class="follow">
+                                                    <a class="btn-follow" href="#">Theo dõi</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="people-follows">
+                                            <div class="mb-0 media">
+                                                <div class="avatar rounded-circle "><img class="rounded-circle " src="./assets/img/a10.jpg" alt=""></div>
+                                                <div class="media-body ml-1">
+                                                    <p class="mb-0 name"><a href="#">Dương Long Hoàng Long</a></p>
+                                                    <p class="mb-0 hour">126 câu trả lời</p>
+                                                </div>
+                                                <div class="follow">
+                                                    <a class="btn-follow" href="#">Theo dõi</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="banner-follow">
+                            <img src="./assets/img/a13.jpg" alt="">
+                            <p>Điều khoản, Quyền riêng tư, Cookie, Quảng cáo, Hợp tác, Tuyển dụng. Balofun © 2020.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- End -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+
+    <!-- slide owl carousel -->
+    <script src="./assets/js/owl.carousel.min.js"></script>
+    <script>
+        function getScrollHeight(elm) {
+            var savedValue = elm.value
+            elm.value = ''
+            elm._baseScrollHeight = elm.scrollHeight
+            elm.value = savedValue
+        }
+
+        function onExpandableTextareaInput({
+            target: elm
+        }) {
+            // make sure the input event originated from a textarea and it's desired to be auto-expandable
+            if (!elm.classList.contains('autoExpand') || !elm.nodeName == 'TEXTAREA') return
+
+            var minRows = elm.getAttribute('data-min-rows') | 0,
+                rows;
+            !elm._baseScrollHeight && getScrollHeight(elm)
+
+            elm.rows = minRows
+            rows = Math.ceil((elm.scrollHeight - elm._baseScrollHeight) / 16)
+            elm.rows = minRows + rows
+        }
+
+        // global delegated event listener
+        document.addEventListener('input', onExpandableTextareaInput)
+    </script>
+    <script>
+        var owl = $('.owl-carousel');
+        owl.owlCarousel({
+
+            stagePadding: 5,
+            loop: true,
+            margin: 10,
+            nav: false,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            dots: false,
+            responsive: {
+                0: {
+                    items: 3
+                },
+                600: {
+                    items: 5
+                },
+                1000: {
+                    items: 4
+                }
+            }
+        });
+        $('.play').on('click', function() {
+            owl.trigger('play.owl.autoplay', [1000])
+        })
+        $('.stop').on('click', function() {
+            owl.trigger('stop.owl.autoplay')
+        })
+        $(function() { //run when the DOM is ready
+            $(".clickitem-topic").click(function() { //use a class, since your ID gets mangled
+                $(this).addClass("active"); //add the class to the clicked element
+            });
+        });
+        $(function() { //run when the DOM is ready
+            $(".register_click").click(function() { //use a class, since your ID gets mangled
+                $('.register_click').not(this).removeClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
