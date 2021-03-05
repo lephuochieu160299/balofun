@@ -306,6 +306,12 @@
   margin-bottom: 10px;
 }
 
+@media (max-width: 420px) {
+  .consultants {
+    padding: 10px 12px;
+  }
+}
+
 .consultants .consultants-slide .item {
   border-radius: 14px;
   border: 1px solid #096642;
@@ -325,7 +331,7 @@
 @media (max-width: 420px) {
   .consultants .consultants-slide .item .text-center .rounded-circle {
     width: 100%;
-    height: 99px;
+    height: 114px;
     object-fit: cover;
   }
 }
@@ -614,6 +620,12 @@
   margin-bottom: 10px;
 }
 
+@media (max-width: 420px) {
+  .course {
+    padding: 10px 12px;
+  }
+}
+
 .course .course-slide .item {
   border-radius: 14px;
   border: 1px solid #096642;
@@ -630,6 +642,12 @@
   object-fit: cover;
 }
 
+@media (max-width: 420px) {
+  .course .course-slide .item .text-left .img-rounded-circle {
+    height: 130px;
+  }
+}
+
 .course .course-slide .item .text-left .price-new {
   background: #F89A35;
   color: #fff;
@@ -638,6 +656,19 @@
   position: absolute;
   margin-top: -60px;
   margin-left: 116px;
+}
+
+@media (max-width: 420px) {
+  .course .course-slide .item .text-left .price-new {
+    background: #F89A35;
+    color: #fff;
+    padding: 2px 12px;
+    border-radius: 14px;
+    position: absolute;
+    margin-top: -46px;
+    margin-left: 45px;
+    font-size: 12px;
+  }
 }
 
 .course .course-slide .item .text-left .info {
@@ -659,6 +690,12 @@
   margin-bottom: 5px;
 }
 
+@media (max-width: 420px) {
+  .course .course-slide .item .text-left .info .service {
+    font-size: 14px;
+  }
+}
+
 .course .course-slide .item .text-left .info .rate {
   font-weight: 300;
 }
@@ -667,13 +704,27 @@
   color: gold;
 }
 
+@media (max-width: 420px) {
+  .course .course-slide .item .text-left .info .rate i {
+    font-size: 10px;
+  }
+}
+
 .course .course-slide .item .text-left .info .student {
   font-weight: 300;
+  font-size: 14px;
+}
+
+@media (max-width: 420px) {
+  .course .course-slide .item .text-left .info .student {
+    display: none;
+  }
 }
 
 .course .course-slide .item .text-left .info .price-old {
   text-decoration: line-through;
   font-weight: 300;
+  font-size: 14px;
 }
 
 .course .course-slide .item .text-left .info .price-old span {
@@ -682,6 +733,13 @@
 
 .course .course-slide .item .text-left .info .teacher {
   font-weight: 300;
+  font-size: 14px;
+}
+
+@media (max-width: 420px) {
+  .course .course-slide .item .text-left .info .teacher {
+    display: none;
+  }
 }
 
 .course .course-slide .item .text-left .info .teacher span {

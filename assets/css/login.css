@@ -1,4 +1,5 @@
-.wp-content, body {
+.wp-content,
+body {
   background-color: var(--main-bg);
 }
 
@@ -12,7 +13,8 @@
   padding: 5px 25px 25px 25px;
 }
 
-.wp-content .sec-formlogin .form-login input[type=text], .wp-content .sec-formlogin .form-login input[type=password] {
+.wp-content .sec-formlogin .form-login input[type=text],
+.wp-content .sec-formlogin .form-login input[type=password] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -22,11 +24,13 @@
   border-radius: 1.25rem;
 }
 
-.wp-content .sec-formlogin .form-login input[type=text]::placeholder, .wp-content .sec-formlogin .form-login input[type=password]::placeholder {
+.wp-content .sec-formlogin .form-login input[type=text]::placeholder,
+.wp-content .sec-formlogin .form-login input[type=password]::placeholder {
   color: #096642;
 }
 
-.wp-content .sec-formlogin .form-login input[type=text]:focus, .wp-content .sec-formlogin .form-login input[type=password]:focus {
+.wp-content .sec-formlogin .form-login input[type=text]:focus,
+.wp-content .sec-formlogin .form-login input[type=password]:focus {
   box-shadow: none;
   outline: 0;
 }
@@ -67,7 +71,7 @@
 }
 
 .wp-content .sec-formlogin .form-login .text-login label {
-  font-size: 11px;
+  font-size: 12px;
   display: inline-block;
   margin-bottom: .5rem;
   color: #096642;
